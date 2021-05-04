@@ -37,7 +37,7 @@ function BackCard(props) {
         <Modal.Body className="d-flex justify-content-center">
           <Row>
             <Col>
-              <Image src={character.image} roundedCircle />
+              <Image src={character.image} id={character.id} roundedCircle />
             </Col>
           </Row>
 
