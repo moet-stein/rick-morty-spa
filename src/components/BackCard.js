@@ -1,14 +1,70 @@
-import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import {
+  Button,
+  Modal,
+  Container,
+  Row,
+  Col,
+  Image,
+  ListGroup,
+} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './BackCard.css';
 
 function BackCard(props) {
-  const characterName = props.myCharacterName;
+  const character = props.myCharacter;
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
-    <div className="flip-card-back">
-      <h2>{characterName}</h2>
-      <h4>Learn More</h4>
+    <div>
+      <div className="flip-card-back d-flex flex-column justify-content-center">
+        <h2>{character.name}</h2>
+        <Button onClick={handleShow} variant="outline-info">
+          Learn More
+        </Button>
+      </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header className="bg-info text-white" closeButton>
+          <Modal.Title className=" font-weight-bold ">
+            {character.name}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="d-flex justify-content-center">
+          <Row>
+            <Col>
+              <Image src={character.image} roundedCircle />
+            </Col>
+          </Row>
+
+          <Row>
+            <Col>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <span className="text-info font-weight-bold">Species:</span>{' '}
+                  {character.species}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <span className="text-info font-weight-bold">Status:</span>{' '}
+                  {character.status}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <span className="text-info font-weight-bold">Origin:</span>{' '}
+                  {character.origin.name}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <span className="text-info font-weight-bold">Location:</span>{' '}
+                  {character.location.name}
+                </ListGroup.Item>
+              </ListGroup>
+            </Col>
+          </Row>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }

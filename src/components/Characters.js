@@ -18,23 +18,21 @@ function Characters() {
     fetchApi();
   });
 
-  //style={{ width: '300px', height: '300px' }
-
   return (
-    <div>
-      <Container className="mt-3 mb-3">
+    <div className="d-flex justify-content-center">
+      <Container className="m-3 d-flex justify-content-center align-content-around">
         <Row>
           {characters.length !== 0 ? (
             characters.map((character) => {
               return (
                 <Col>
-                  <Card className="my-card m-3">
+                  <Card className="my-card m-2">
                     <div className="flip-card">
                       <div className="flip-card-inner">
                         <div className="flip-card-front">
                           <img className="card-image" src={character.image} />
                         </div>
-                        <BackCard myCharacterName={character.name} />
+                        <BackCard myCharacter={character} />
                       </div>
                     </div>
                   </Card>
