@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import BackCard from './BackCard.js';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Character.css';
 
 function Character(props) {
-  const { character } = props;
+  const { filteredCharacter } = props;
   return (
     <React.Fragment>
       <Row>
@@ -16,11 +16,12 @@ function Character(props) {
                 <div className="flip-card-front">
                   <img
                     className="card-image"
-                    src={character.image}
-                    key={character.id}
+                    src={filteredCharacter.image}
+                    key={filteredCharacter.id}
+                    alt={filteredCharacter.name}
                   />
                 </div>
-                <BackCard myCharacter={character} />
+                <BackCard myCharacter={filteredCharacter} />
               </div>
             </div>
           </Card>

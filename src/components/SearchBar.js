@@ -1,36 +1,38 @@
 import { React, useState } from 'react';
-import { Container, Row, Col, Form } from 'react-bootstrap';
+import Characters from './Characters.js';
+import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const SearchBar = () => {
-  const { searchTerm, setSearchTerm } = useState('');
+const SearchBar = (props) => {
+  const { characters } = props;
+  const { loading } = props;
+  const [searchTerm, setSearchTerm] = useState('');
   return (
-    <div style={{ backgroundColor: 'teal' }}>
-      <Container className="mb-3">
-        <Row>
-          <Col md={{ span: 6, offset: 3 }}>
-            <h1 className="text-light">Rick and Morty</h1>
-            {/* <Form className="mt-3" bg="dark">
-              <Form.Group controlId="formBasicEmail">
-                <Form.Control
+    <div>
+      <div className="bg-gradient">
+        <Container className="mb-3">
+          <Row>
+            <Col md={{ span: 6, offset: 3 }}>
+              <h1 className="text-light">Rick and Morty</h1>
+              <InputGroup className="mb-3">
+                <FormControl
+                  className="m-3"
                   type="text"
                   placeholder="Search name"
                   onChange={(event) => {
                     setSearchTerm(event.target.value);
                   }}
                 />
-              </Form.Group>
-            </Form> */}
-            <input
-              type="text"
-              placeholder="Search name"
-              onChange={(event) => {
-                setSearchTerm(event.target.value);
-              }}
-            />
-          </Col>
-        </Row>
-      </Container>
+              </InputGroup>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      <Characters
+        characters={characters}
+        searchTerm={searchTerm}
+        loading={loading}
+      />
     </div>
   );
 };

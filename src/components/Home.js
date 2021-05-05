@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import Character from './Character.js';
-// import SearchBar from './SearchBar.js';
-import {
-  Container,
-  Row,
-  Col,
-  InputGroup,
-  FormControl,
-  Button,
-} from 'react-bootstrap';
+import SearchBar from './SearchBar.js';
+import { Container, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ArrowRight } from 'react-bootstrap-icons';
 import { ArrowLeft } from 'react-bootstrap-icons';
+import './Home.css';
 
 const Home = () => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+  // const [searchTerm, setSearchTerm] = useState('');
   const [pageNum, setPageNum] = useState(1);
 
   const fetchApi = () => {
@@ -38,7 +31,9 @@ const Home = () => {
 
   return (
     <React.Fragment>
-      <div style={{ backgroundColor: 'teal' }}>
+      <SearchBar characters={characters} loading={loading} />
+
+      {/* <div className="bg-gradient">
         <Container className="mb-3">
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
@@ -56,9 +51,9 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </div> */}
 
-      <div>
+      {/* <div>
         <Container>
           <Row className="m-3 d-flex justify-content-center align-content-center">
             {!loading ? (
@@ -76,7 +71,8 @@ const Home = () => {
             )}
           </Row>
         </Container>
-      </div>
+      </div> */}
+
       <Container className="mb-3">
         {pageNum === 1 ? (
           <Button variant="link" disabled>

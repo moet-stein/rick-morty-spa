@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  Modal,
-  Container,
-  Row,
-  Col,
-  Image,
-  ListGroup,
-} from 'react-bootstrap';
+import { Button, Modal, Row, Col, Image, ListGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './BackCard.css';
 
