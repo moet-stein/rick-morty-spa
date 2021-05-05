@@ -1,12 +1,13 @@
-import { React, useState } from 'react';
-import Characters from './Characters.js';
+import { React } from 'react';
+
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SearchBar = (props) => {
-  const { characters } = props;
-  const { loading } = props;
-  const [searchTerm, setSearchTerm] = useState('');
+  const handleChange = (event) => {
+    props.onchange(event.target.value);
+  };
+
   return (
     <div>
       <div className="bg-gradient">
@@ -19,20 +20,13 @@ const SearchBar = (props) => {
                   className="m-3"
                   type="text"
                   placeholder="Search name"
-                  onChange={(event) => {
-                    setSearchTerm(event.target.value);
-                  }}
+                  onChange={handleChange}
                 />
               </InputGroup>
             </Col>
           </Row>
         </Container>
       </div>
-      <Characters
-        characters={characters}
-        searchTerm={searchTerm}
-        loading={loading}
-      />
     </div>
   );
 };
