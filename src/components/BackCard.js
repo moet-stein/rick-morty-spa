@@ -12,7 +12,7 @@ function BackCard(props) {
   const handleShow = () => setShow(true);
 
   return (
-    <div>
+    <React.Fragment>
       <div className="flip-card-back d-flex flex-column justify-content-center">
         <h2>{character.name}</h2>
         <Button onClick={handleShow} variant="outline-info">
@@ -57,7 +57,7 @@ function BackCard(props) {
           </Row>
         </Modal.Body>
       </Modal>
-    </div>
+    </React.Fragment>
   );
 }
 

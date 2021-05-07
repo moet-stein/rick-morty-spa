@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React from 'react';
 import Character from './Character.js';
 import { Container, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,7 +15,7 @@ const Characters = (props) => {
     : characters;
 
   return (
-    <div>
+    <React.Fragment>
       <Container>
         <Row className="m-3 d-flex justify-content-center align-content-center">
           {!loading ? (
@@ -32,7 +32,7 @@ const Characters = (props) => {
           )}
         </Row>
       </Container>
-    </div>
+    </React.Fragment>
   );
 };
 

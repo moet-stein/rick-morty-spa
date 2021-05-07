@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React from 'react';
 
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +9,7 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <div className="bg-gradient">
         <Container className="mb-3">
           <Row>
@@ -27,7 +27,7 @@ const SearchBar = (props) => {
           </Row>
         </Container>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
