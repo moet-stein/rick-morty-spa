@@ -14,15 +14,15 @@ const Home = () => {
   const [pageNum, setPageNum] = useState(1);
   const [info, setInfo] = useState([]);
 
-  const fetchApi = () => {
-    fetch(`https://rickandmortyapi.com/api/character/?page=${pageNum}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setCharacters(data.results);
-        setInfo(data.info);
-        setLoading(false);
-      });
-  };
+  // const fetchApi = () => {
+  //   fetch(`https://rickandmortyapi.com/api/character/?page=${pageNum}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setCharacters(data.results);
+  //       setInfo(data.info);
+  //       setLoading(false);
+  //     });
+  // };
 
   const onchange = (data) => {
     setSearchTerm(data);
@@ -35,6 +35,15 @@ const Home = () => {
   };
 
   useEffect(() => {
+    const fetchApi = () => {
+      fetch(`https://rickandmortyapi.com/api/character/?page=${pageNum}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setCharacters(data.results);
+          setInfo(data.info);
+          setLoading(false);
+        });
+    };
     fetchApi();
   }, [pageNum]);
 
