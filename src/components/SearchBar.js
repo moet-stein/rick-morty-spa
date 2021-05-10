@@ -14,7 +14,7 @@ const SearchBar = (props) => {
         <Container className="mb-3">
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
-              <h1 className="text-light">Rick and Morty</h1>
+              <h1 className="text-light mt-3">Rick and Morty</h1>
               <InputGroup className="mb-3">
                 <FormControl
                   className="m-3"
